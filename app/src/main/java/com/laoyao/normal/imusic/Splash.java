@@ -13,8 +13,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import tools.SongInformation;
+
 public class Splash extends AppCompatActivity
 {
+
+    ExecutorService SingleExe = Executors.newSingleThreadExecutor() ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,9 +56,21 @@ public class Splash extends AppCompatActivity
             @Override
             public void onAnimationEnd(Animation animation)
             {
-                Intent toMain = new Intent(Splash.this , MainActivity.class) ;
-                startActivity(toMain);
-                overridePendingTransition(R.anim.activity_scale_appear , R.anim.activity_scale_disappear);
+                SingleExe.execute(new Runnable() {
+                    @Override
+                    public void run()
+                    {
+                        SongInformation information = new SongInformation(Splash.this) ;
+                        information.RefreshMediaStore();
+                        information.GetTotalInformation();
+
+                        Intent toMain = new Intent(Splash.this , MainActivity.class) ;
+                        startActivity(toMain);
+                        overridePendingTransition(R.anim.activity_scale_appear , R.anim.activity_scale_disappear);
+
+                        finish();
+                    }
+                });
             }
 
             @Override

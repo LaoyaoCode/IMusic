@@ -1,12 +1,15 @@
 package com.laoyao.normal.imusic;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import java.util.List;
 
@@ -28,11 +31,5 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
-
-        SongInformation total = new SongInformation(this) ;
-        List<SongInformation.Information> informations = total.GetTotalInformation() ;
-
-
-        informations = informations ;
     }
 }

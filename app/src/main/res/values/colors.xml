@@ -3,9 +3,10 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">@android:color/transparent</color>
     <color name="divider">#BDBDBD</color>
-    <color name="colorAccent">#03A9F4</color>
+    <color name="colorAccent">#FF4081</color>
     <color name="primaryTextColor">#757575</color>
     <color name="secondTextColor">#BDBDBD</color>
     <color name="whiteText80">#CCFFFFFF</color>
     <color name="whiteText50">#80FFFFFF</color>
+    <color name="pinkBarLike">#E91E63</color>
 </resources>
